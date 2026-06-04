@@ -1,0 +1,71 @@
+# ========================
+# Node.js
+# ========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ========================
+# Environment variables
+# ========================
+.env
+.env.local
+.env.*.local
+
+# ========================
+# Hardhat / Blockchain
+# ========================
+artifacts/
+cache/
+coverage/
+coverage.json
+typechain/
+typechain-types/
+gas-report.txt
+
+# ========================
+# Build / Dist
+# ========================
+dist/
+build/
+out/
+
+# ========================
+# Frontend (Vite / React / Next)
+# ========================
+.vite/
+.next/
+.next-env.d.ts
+
+# ========================
+# Logs
+# ========================
+logs/
+*.log
+
+# ========================
+# OS / Editor
+# ========================
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+# ========================
+# Python (se tiver scripts)
+# ========================
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ========================
+# Temporary / Misc
+# ========================
+*.tmp
+*.swp
+*.bak
