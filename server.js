@@ -195,6 +195,29 @@ app.post('/api/trade/sell', (req, res) => {
   res.json({ success: true, transaction: tx, newBalance: portfolio.balance });
 });
 
+app.post('/api/withdraw', (req, res) => {
+  const { amount, pixKey } = req.body;
+  const value = parseFloat(amount);
+
+  if (!value || value <= 0) return res.status(400).json({ error: 'Valor inválido' });
+  if (value > portfolio.balance) return res.status(400).json({ error: 'Saldo insuficiente' });
+
+  portfolio.balance -= value;
+  const withdrawal = {
+    id: Date.now(),
+    amount: value,
+    pixKey,
+    status: 'simulado',
+    timestamp: new Date().toISOString()
+  };
+
+  portfolio.withdrawals.unshift(withdrawal);
+  broadcastPortfolio();
+
+  res.json({ success: true, withdrawal, newBalance: portfolio.balance });
+});
+
+
 
 app.post('/api/deposit', async (req, res) => {
 
